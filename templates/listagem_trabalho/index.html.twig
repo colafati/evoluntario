@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello{% endblock %}
+
+{% block body %}
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Instituição</th>
+                    <th>Categoria</th>
+                    <th>Início</th>
+                    <th>Fim</th>
+                    <th>Período</th>
+                    <th>Site</th>
+                    <th>Cidade</th>
+                    <th>Telefone</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+        {%for trabalho in trabalhos%}
+            <tr>
+                <td>{{trabalho.instituicao}}</td>
+                <td>{{trabalho.categoria}}</td>
+                <td>{{trabalho.dataInicio|date('d-m-Y')}}</td>
+                <td>{{trabalho.dataFim|date('d-m-Y')}}</td>
+                <td>{{trabalho.periodo}}</td>
+                <td>{{trabalho.site}}</td>
+                <td>{{trabalho.cidade}}</td>
+                <td>{{trabalho.telefone}}</td>
+                <td>{{trabalho.email}}</td>
+            </tr>
+        {%endfor%}
+        </table>
+    </div>
+{% endblock %}
