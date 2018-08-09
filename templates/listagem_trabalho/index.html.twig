@@ -1,8 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello{% endblock %}
+{% block title %}Listagem de Trabalhos{% endblock %}
 
 {% block body %}
+    <h1>Listagem de Trabalhos Voluntários</h1><br>
     <div class="filtros">
         <div>
             <form action="{{ path('listagem_trabalho') }}" method="get" class="row">
@@ -37,47 +38,52 @@
                 </div>
             </form>
         </div>
-    <div>
+    </div>
+    <br />
+    <div id="list-container">
         {%for trabalho in trabalhos%}
-            <div class="row">
-                <div class="col-3">
-                    <div>
-                        <span>Instituição:</span>
-                        {{trabalho.instituicao}}
+            <div class="block-trabalho">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div>
+                            <strong>Instituição:</strong>
+                            {{trabalho.instituicao}}
+                        </div>
+                        <div>
+                            <strong>Período:</strong>
+                            {{trabalho.periodo}}
+                        </div>
+                        <div>
+                            <strong>Data:</strong>
+                            <small>de</small> {{trabalho.dataInicio|date('d/m/Y')}} <small>até</small><br> {{trabalho.dataFim|date('d/m/Y')}}
+                        </div>                        
                     </div>
-                    <div>
-                        <span>Categoria:</span>
-                        {{trabalho.categoria}}
+                    <div class="col-sm-5">
+                        <div>
+                            <a href="{{trabalho.site}}" target="_blank" rel="nofollow">{{trabalho.site}}</a>
+                        </div>
+                        <div>
+                            <strong>Cidade:</strong>
+                            {{trabalho.cidade}}
+                        </div>
+                        <div>
+                            <strong>Email:</strong>
+                            <a href="mailto:{{trabalho.email}}" target="_blank" rel="nofollow">{{trabalho.email}}</a>
+                        </div>
+                        
                     </div>
-                    <div>
-                        <span>Data</span>
-                        {{trabalho.dataInicio|date('d-m-Y')}} - {{trabalho.dataFim|date('d-m-Y')}}
-                    </div>
-                    <div>
-                        <span>Período</span>
-                        {{trabalho.periodo}}
+                    <div class="col-sm-3">
+                        <div>
+                            <strong>Categoria:</strong>
+                            {{trabalho.categoria}}                            
+                        </div>
+                        <div>
+                            <strong>Tel:</strong>
+                            {{trabalho.telefone}}
+                        </div>
                     </div>
                 </div>
-                <div class="col-6">
-                    <div>
-                        <span>Site:</span>
-                        {{trabalho.site}}
-                    </div>
-                    <div>
-                        <span>Cidade:</span>
-                        {{trabalho.cidade}}
-                    </div>
-                    <div>
-                        <span>Telefone</span>
-                        {{trabalho.telefone}}
-                    </div>
-                </div>
-                <div class="col-3">
-                    <div>
-                        <span>Email:</span>
-                        {{trabalho.email}}
-                    </div>
-                </div>
+                <div>{{trabalho.descricao}}</div>
             </div>
         {%endfor%}
     </div>

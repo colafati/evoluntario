@@ -13,11 +13,18 @@ h1 {font-size:32px; color:#007bff; text-shadow: 0 0 1px black}
 
 .container {background:rgba(255,255,255,0.8); border-radius: 0 0 10px 10px; padding-bottom:20px}
 .mh400 {min-height: 400px}
+
+#list-container,
 #form-container #form {max-width:700px; margin:0 auto;}
 
-#form-container #form div {width:330px; float:left}
+#form-container #form div {width:330px; float:left;}
 #form-container #form div:nth-child(odd) { margin-right: 20px;}
 #form-container #form div:last-child {float:none}
+
+#list-container .block-trabalho {background:white; box-shadow: 0 0 10px grey; border-radius: 4px; margin-bottom: 20px; color:#666; border:1px solid transparent; padding:20px;}
+#list-container .block-trabalho strong {font-weight: 600}
+#list-container .block-trabalho:hover {box-shadow: 0 0 10px #25aae1; border-color:#ccc;}
+
 
 @media (min-width: 768px) {
   body {
