@@ -48,6 +48,11 @@ class ListagemTrabalhoController extends Controller
                 ->setParameter('data', $request->get('data'));
         }
         
+        if(!empty($request->get('texto'))) {
+            $qb->andWhere('t.descricao LIKE :texto')
+                ->setParameter('texto', '%' . str_replace(' ', '%', $request->get('texto')) . '%');
+        }
+        
         $qb->orderBy('t.id', 'DESC');
         $trabalhos = $qb->getQuery()->execute();
         
