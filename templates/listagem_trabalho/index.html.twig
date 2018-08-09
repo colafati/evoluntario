@@ -4,12 +4,12 @@
 
 {% block body %}
     <div class="filtros">
-        <div class="row">
-            <form action="{{ path('listagem_trabalho') }}" method="get">
+        <div>
+            <form action="{{ path('listagem_trabalho') }}" method="get" class="row">
                 <div class="col-2">
                     <span>Cidade</span>
                     <select name="cidade">
-                        <option value=""{% if request.cidade is not defined or request.cidade == '' %} selected="selected"{% endif %}> - Selecione uma Cidade - </option>
+                        <option value=""{% if request.cidade is not defined or request.cidade == '' %} selected="selected"{% endif %}> - Selecione - </option>
                         {% for cidade in cidades %}
                             <option value="{{ cidade.cidade }}"{% if request.cidade is defined and request.cidade == cidade.cidade %} selected="selected"{% endif %}>{{ cidade.cidade }}</option>
                         {% endfor %}
@@ -18,7 +18,7 @@
                 <div class="col-2">
                     <span>Categoria</span>
                     <select name="categoria">
-                        <option value=""{% if request.categoria is not defined or request.categoria == '' %} selected="selected"{% endif %}> - Selecione uma Cidade - </option>
+                        <option value=""{% if request.categoria is not defined or request.categoria == '' %} selected="selected"{% endif %}> - Selecione - </option>
                         {% for categoria in categorias %}
                             <option value="{{ categoria.categoria }}"{% if request.categoria is defined and request.categoria == categoria.categoria %} selected="selected"{% endif %}>{{ categoria.categoria }}</option>
                         {% endfor %}
