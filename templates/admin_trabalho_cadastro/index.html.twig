@@ -5,6 +5,12 @@
 {% block body %}
 
 <h1>Cadastro de Trabalhos Voluntários</h1>
+{%if confirm%}
+<div id="success_trabalho" class="alert alert-success">
+  <strong>Obrigado!</strong> Seu trabalho foi salvo com sucesso!
+  <div style="float:right; cursor:pointer" onclick="this.parentNode.style.display='none';"><strong>X</strong></div>
+</div>
+{%endif%}
 <div class="form-group">
     {{ form_start(form) }}
     {{ form_widget(form) }}
