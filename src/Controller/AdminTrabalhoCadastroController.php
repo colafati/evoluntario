@@ -23,22 +23,21 @@ class AdminTrabalhoCadastroController extends Controller
         
         $form = $this->createFormBuilder($trabalho)
                 ->setAction($this->generateUrl('admin_trabalho_cadastro'))
-                ->add('instituicao', TextType::class)
-                ->add('categoria', ChoiceType::class, ['choices'=>['Animais'=>'animais','Crianças'=>'criancas','Idosos'=>'idosos','Moradia'=>'moradia','Outros'=>'outros']])
-                ->add('dataInicio', DateType::class)
-                ->add('dataFim', DateType::class)
-                ->add('periodo', TextType::class)
-                ->add('site', TextType::class)
-                ->add('cidade', TextType::class)
-                ->add('telefone', TextType::class)
-                ->add('email', TextType::class)
-                ->add('descricao', TextareaType::class)
-                ->add('salvar', SubmitType::class, array('label' => 'Salvar Trabalho'))
+                ->add('instituicao', TextType::class, array('attr' => ['class'=>'form-control']))
+                ->add('categoria', ChoiceType::class, ['choices'=>['Animais'=>'animais','Crianças'=>'criancas','Idosos'=>'idosos','Moradia'=>'moradia','Outros'=>'outros'], 'attr' => ['class'=>'form-control']])
+                ->add('dataInicio', DateType::class, array('attr' => ['class'=>'form-control']))
+                ->add('dataFim', DateType::class, array('attr' => ['class'=>'form-control']))
+                ->add('periodo', TextType::class, array('attr' => ['class'=>'form-control']))
+                ->add('site', TextType::class, array('attr' => ['class'=>'form-control']))
+                ->add('cidade', TextType::class, array('attr' => ['class'=>'form-control']))
+                ->add('telefone', TextType::class, array('attr' => ['class'=>'form-control']))
+                ->add('email', TextType::class, array('attr' => ['class'=>'form-control']))
+                ->add('descricao', TextareaType::class, array('attr' => ['class'=>'form-control']))
+                ->add('salvar', SubmitType::class, array('label' => 'Salvar Trabalho','attr' => ['class'=>'btn btn-primary']))
                 ->getForm();
         
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($trabalho);
             $entityManager->flush();
@@ -47,6 +46,5 @@ class AdminTrabalhoCadastroController extends Controller
         return $this->render('admin_trabalho_cadastro/index.html.twig', [
             'form' => $form->createView(),
         ]);
-    }
-    
+    }    
 }
