@@ -4,33 +4,47 @@
 
 {% block body %}
     <div>
-        <table>
-            <thead>
-                <tr>
-                    <th>Instituição</th>
-                    <th>Categoria</th>
-                    <th>Início</th>
-                    <th>Fim</th>
-                    <th>Período</th>
-                    <th>Site</th>
-                    <th>Cidade</th>
-                    <th>Telefone</th>
-                    <th>Email</th>
-                </tr>
-            </thead>
         {%for trabalho in trabalhos%}
-            <tr>
-                <td>{{trabalho.instituicao}}</td>
-                <td>{{trabalho.categoria}}</td>
-                <td>{{trabalho.dataInicio|date('d-m-Y')}}</td>
-                <td>{{trabalho.dataFim|date('d-m-Y')}}</td>
-                <td>{{trabalho.periodo}}</td>
-                <td>{{trabalho.site}}</td>
-                <td>{{trabalho.cidade}}</td>
-                <td>{{trabalho.telefone}}</td>
-                <td>{{trabalho.email}}</td>
-            </tr>
+            <div class="row">
+                <div class="col-3">
+                    <div>
+                        <span>Instituição:</span>
+                        {{trabalho.instituicao}}
+                    </div>
+                    <div>
+                        <span>Categoria:</span>
+                        {{trabalho.categoria}}
+                    </div>
+                    <div>
+                        <span>Data</span>
+                        {{trabalho.dataInicio|date('d-m-Y')}} - {{trabalho.dataFim|date('d-m-Y')}}
+                    </div>
+                    <div>
+                        <span>Período</span>
+                        {{trabalho.periodo}}
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div>
+                        <span>Site:</span>
+                        {{trabalho.site}}
+                    </div>
+                    <div>
+                        <span>Cidade:</span>
+                        {{trabalho.cidade}}
+                    </div>
+                    <div>
+                        <span>Telefone</span>
+                        {{trabalho.telefone}}
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div>
+                        <span>Email:</span>
+                        {{trabalho.email}}
+                    </div>
+                </div>
+            </div>
         {%endfor%}
-        </table>
-    </div>
+    </div>`
 {% endblock %}
