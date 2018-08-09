@@ -1,50 +1,51 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello{% endblock %}
+{% block title %}Listagem de Trabalhos{% endblock %}
 
 {% block body %}
-    <div>
+    <h1>Listagem de Trabalhos Voluntários</h1><br>
+    <div id="list-container">
         {%for trabalho in trabalhos%}
             <div class="row">
-                <div class="col-3">
+                <div class="col-5">
                     <div>
-                        <span>Instituição:</span>
+                        <strong>Instituição:</strong>
                         {{trabalho.instituicao}}
                     </div>
                     <div>
-                        <span>Categoria:</span>
-                        {{trabalho.categoria}}
+                        <strong>Período</strong>
+                        {{trabalho.periodo}}                        
                     </div>
                     <div>
-                        <span>Data</span>
+                        <strong>Data</strong>
                         {{trabalho.dataInicio|date('d-m-Y')}} - {{trabalho.dataFim|date('d-m-Y')}}
                     </div>
                     <div>
-                        <span>Período</span>
-                        {{trabalho.periodo}}
+                        <strong>Email:</strong>
+                        {{trabalho.email}}                        
                     </div>
                 </div>
-                <div class="col-6">
+                <div class="col-4">
                     <div>
-                        <span>Site:</span>
-                        {{trabalho.site}}
+                        <a href="{{trabalho.site}}" target="_blank" rel="nofollow">{{trabalho.site}}</a>
                     </div>
                     <div>
-                        <span>Cidade:</span>
+                        <strong>Cidade:</strong>
                         {{trabalho.cidade}}
                     </div>
                     <div>
-                        <span>Telefone</span>
+                        <strong>Telefone</strong>
                         {{trabalho.telefone}}
                     </div>
                 </div>
                 <div class="col-3">
                     <div>
-                        <span>Email:</span>
-                        {{trabalho.email}}
+                        <strong>Categoria:</strong>
+                        {{trabalho.categoria}}
+                        
                     </div>
                 </div>
             </div>
         {%endfor%}
-    </div>`
+    </div>
 {% endblock %}
