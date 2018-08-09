@@ -24,8 +24,8 @@ class AdminTrabalhoCadastroController extends Controller
         
         $form = $this->createFormBuilder($trabalho)
                 ->setAction($this->generateUrl('admin_trabalho_cadastro'))
-                ->add('instituicao', TextType::class, array('attr' => ['class'=>'form-control col-sm-6']))
-                ->add('categoria', ChoiceType::class, ['choices'=>['Animais'=>'animais','Crianças'=>'criancas','Idosos'=>'idosos','Moradia'=>'moradia','Outros'=>'outros'], 'attr' => ['class'=>'form-control col-sm-6']])
+                ->add('instituicao', TextType::class, array('attr' => ['class'=>'form-control']))
+                ->add('categoria', ChoiceType::class, ['choices'=>['Animais'=>'animais','Crianças'=>'criancas','Idosos'=>'idosos','Moradia'=>'moradia','Outros'=>'outros'], 'attr' => ['class'=>'form-control']])
                 ->add('dataInicio', DateType::class, array('attr' => ['class'=>'form-control'], 'widget'=>'single_text'))
                 ->add('dataFim', DateType::class, array('attr' => ['class'=>'form-control'], 'widget'=>'single_text'))
                 ->add('periodo', TextType::class, array('attr' => ['class'=>'form-control']))
