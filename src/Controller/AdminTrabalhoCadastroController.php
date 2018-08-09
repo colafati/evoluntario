@@ -12,6 +12,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\UrlType;
 
 class AdminTrabalhoCadastroController extends Controller
 {
@@ -29,7 +30,7 @@ class AdminTrabalhoCadastroController extends Controller
                 ->add('dataInicio', DateType::class, array('attr' => ['class'=>'form-control'], 'widget'=>'single_text'))
                 ->add('dataFim', DateType::class, array('attr' => ['class'=>'form-control'], 'widget'=>'single_text'))
                 ->add('periodo', TextType::class, array('attr' => ['class'=>'form-control']))
-                ->add('site', TextType::class, array('attr' => ['class'=>'form-control']))
+                ->add('site', UrlType::class, array('attr' => ['class'=>'form-control']))
                 ->add('cidade', TextType::class, array('attr' => ['class'=>'form-control']))
                 ->add('telefone', TextType::class, array('attr' => ['class'=>'form-control']))
                 ->add('email', EmailType::class, array('attr' => ['class'=>'form-control']))
