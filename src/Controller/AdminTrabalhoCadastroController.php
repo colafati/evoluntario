@@ -54,15 +54,15 @@ class AdminTrabalhoCadastroController extends Controller
     
     function captchaverify($recaptcha){
             $url = "https://www.google.com/recaptcha/api/siteverify";
-            $ch = curl_init();
-            curl_setopt($ch, CURLOPT_URL, $url);
-            curl_setopt($ch, CURLOPT_HEADER, 0);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE); 
-            curl_setopt($ch, CURLOPT_POST, true);
-            curl_setopt($ch, CURLOPT_POSTFIELDS, array(
+            $curlObj = curl_init();
+            curl_setopt($curlObj, CURLOPT_URL, $url);
+            curl_setopt($curlObj, CURLOPT_HEADER, 0);
+            curl_setopt($curlObj, CURLOPT_RETURNTRANSFER, TRUE); 
+            curl_setopt($curlObj, CURLOPT_POST, true);
+            curl_setopt($curlObj, CURLOPT_POSTFIELDS, array(
                 "secret"=>"6LcOMmkUAAAAAFKDYuAqwMtToqy_YtZmk-e4fxsK","response"=>$recaptcha));
-            $response = curl_exec($ch);
-            curl_close($ch);
+            $response = curl_exec($curlObj);
+            curl_close($curlObj);
             $data = json_decode($response);     
         return $data->success;        
     }
