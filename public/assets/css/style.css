@@ -1,0 +1,18 @@
+body {background:#b2c72d;}
+#header {background:white;  margin:0 -15px}
+#header img {margin:20px;}
+#header .bgmenu {background:#25aae1;}
+
+.nav-link, .nav-link:hover {color:white}
+.nav-link.active {text-decoration: underline;}
+
+.container {background:rgba(255,255,255,0.8); border-radius: 0 0 10px 10px; padding-bottom:20px}
+.mh400 {min-height: 400px}
+
+
+@media (min-width: 768px) {
+  body {
+    background:#b2c72d url('/images/volunteer-hero.jpg') 0 0 no-repeat;
+    background-size:100%;
+  }
+}
