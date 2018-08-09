@@ -6,45 +6,48 @@
     <h1>Listagem de Trabalhos Voluntários</h1><br>
     <div id="list-container">
         {%for trabalho in trabalhos%}
-            <div class="row">
-                <div class="col-5">
-                    <div>
-                        <strong>Instituição:</strong>
-                        {{trabalho.instituicao}}
+            <div class="block-trabalho">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div>
+                            <strong>Instituição:</strong>
+                            {{trabalho.instituicao}}
+                        </div>
+                        <div>
+                            <strong>Período:</strong>
+                            {{trabalho.periodo}}
+                        </div>
+                        <div>
+                            <strong>Data:</strong>
+                            <small>de</small> {{trabalho.dataInicio|date('d/m/Y')}} <small>até</small><br> {{trabalho.dataFim|date('d/m/Y')}}
+                        </div>                        
                     </div>
-                    <div>
-                        <strong>Período</strong>
-                        {{trabalho.periodo}}                        
-                    </div>
-                    <div>
-                        <strong>Data</strong>
-                        {{trabalho.dataInicio|date('d-m-Y')}} - {{trabalho.dataFim|date('d-m-Y')}}
-                    </div>
-                    <div>
-                        <strong>Email:</strong>
-                        {{trabalho.email}}                        
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div>
-                        <a href="{{trabalho.site}}" target="_blank" rel="nofollow">{{trabalho.site}}</a>
-                    </div>
-                    <div>
-                        <strong>Cidade:</strong>
-                        {{trabalho.cidade}}
-                    </div>
-                    <div>
-                        <strong>Telefone</strong>
-                        {{trabalho.telefone}}
-                    </div>
-                </div>
-                <div class="col-3">
-                    <div>
-                        <strong>Categoria:</strong>
-                        {{trabalho.categoria}}
+                    <div class="col-sm-5">
+                        <div>
+                            <a href="{{trabalho.site}}" target="_blank" rel="nofollow">{{trabalho.site}}</a>
+                        </div>
+                        <div>
+                            <strong>Cidade:</strong>
+                            {{trabalho.cidade}}
+                        </div>
+                        <div>
+                            <strong>Email:</strong>
+                            <a href="mailto:{{trabalho.email}}" target="_blank" rel="nofollow">{{trabalho.email}}</a>
+                        </div>
                         
                     </div>
+                    <div class="col-sm-3">
+                        <div>
+                            <strong>Categoria:</strong>
+                            {{trabalho.categoria}}                            
+                        </div>
+                        <div>
+                            <strong>Tel:</strong>
+                            {{trabalho.telefone}}
+                        </div>
+                    </div>
                 </div>
+                <div>{{trabalho.descricao}}</div>
             </div>
         {%endfor%}
     </div>
