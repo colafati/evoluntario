@@ -17,7 +17,12 @@
                 </div>
                 <div class="col-2">
                     <span>Categoria</span>
-
+                    <select name="categoria">
+                        <option value=""{% if request.categoria is not defined or request.categoria == '' %} selected="selected"{% endif %}> - Selecione uma Cidade - </option>
+                        {% for categoria in categorias %}
+                            <option value="{{ categoria.categoria }}"{% if request.categoria is defined and request.categoria == categoria.categoria %} selected="selected"{% endif %}>{{ categoria.categoria }}</option>
+                        {% endfor %}
+                    </select>
                 </div>
                 <div class="col-2">
                     <span>Data</span>
@@ -25,7 +30,7 @@
                 </div>
                 <div class="col-3">
                     <span>Texto</span>
-
+                    <input type="text" name="texto" value="{{ request.texto }}" />
                 </div>
                 <div class="col-3">
                     <button type="submit">Filtrar</button>
@@ -75,5 +80,5 @@
                 </div>
             </div>
         {%endfor%}
-    </div>`
+    </div>
 {% endblock %}
