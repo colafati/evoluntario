@@ -43,6 +43,11 @@ class ListagemTrabalhoController extends Controller
                 ->setParameter('categoria', $request->get('categoria'));
         }
         
+        if(!empty($request->get('data'))) {
+            $qb->andWhere('t.dataInicio <= :data AND t.dataFim >= :data')
+                ->setParameter('data', $request->get('data'));
+        }
+        
         $qb->orderBy('t.id', 'DESC');
         $trabalhos = $qb->getQuery()->execute();
         
