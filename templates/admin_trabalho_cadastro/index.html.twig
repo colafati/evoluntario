@@ -5,16 +5,25 @@
 {% block body %}
 
 <h1>Cadastro de Trabalhos Voluntários</h1>
-{%if confirm%}
-<div id="success_trabalho" class="alert alert-success">
-  <strong>Obrigado!</strong> Seu trabalho foi salvo com sucesso!
-  <div style="float:right; cursor:pointer" onclick="this.parentNode.style.display='none';"><strong>X</strong></div>
-</div>
+{%if submit%}
+    {%if confirm%}
+    <div class="alert alert-success">
+      <strong>Obrigado!</strong> Seu trabalho foi salvo com sucesso!
+      <div style="float:right; cursor:pointer" onclick="this.parentNode.style.display='none';"><strong>X</strong></div>
+    </div>
+    {%else%}
+    <div class="alert alert-danger">
+      <strong>Erro!</strong> Por favor realize a verificação abaixo.
+      <div style="float:right; cursor:pointer" onclick="this.parentNode.style.display='none';"><strong>X</strong></div>
+    </div>
+    {%endif%}
 {%endif%}
 <div id="form-container" class="form-group">
     {{ form_start(form) }}
+    <div class="g-recaptcha" data-sitekey="6LcOMmkUAAAAAGt2Yn_LyzdNHR9yu2qJvNCV1ADJ"></div>
     {{ form_widget(form) }}
     {{ form_end(form) }}
 </div>
 <div class="clearfix"></div>
+<script src='https://www.google.com/recaptcha/api.js'></script>
 {% endblock %}
