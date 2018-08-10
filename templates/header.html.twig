@@ -17,9 +17,15 @@
             <li class="nav-item">
                 <a class="nav-link {{ current_path == 'listagem_trabalho' ? 'active' }}" href="{{ path('listagem_trabalho') }}">Lista de Trabalhos</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link {{ current_path == 'admin_trabalho_cadastro' ? 'active' }}" href="{{ path('admin_trabalho_cadastro') }}" rel="nofollow">Cadastrar Trabalho</a>
-            </li>
+            {% if app.user %}
+                <li class="nav-item">
+                    <a class="nav-link {{ current_path == 'admin_trabalho_cadastro' ? 'active' }}" href="{{ path('admin_trabalho_cadastro') }}" rel="nofollow">Cadastrar Trabalho</a>
+                </li>
+            {% else %}
+                <li class="nav-item">
+                    <a class="nav-link {{ current_path == 'fos_user_security_login' ? 'active' }}" href="{{ path('fos_user_security_login') }}" rel="nofollow">Login</a>
+                </li>
+            {% endif %}
         </ul>
     </div>
 </div>
