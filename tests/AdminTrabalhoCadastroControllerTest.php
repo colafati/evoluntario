@@ -12,6 +12,6 @@ class AdminTrabalhoCadastroControllerTest extends WebTestCase
 
         $client->request('GET', '/admin/trabalho/cadastro');
 
-        $this->assertEquals(200, $client->getResponse()->getStatusCode());
+        $this->assertEquals(302, $client->getResponse()->getStatusCode());
     }
 }
