@@ -1,10 +1,10 @@
 {% set current_path = app.request.get('_route') %}
 <div id="header">
-    <img src="/images/evoluntario-logo.png" /><br />
+    <a href="{{ path('home') }}"><img src="/images/evoluntario-logo.png" /></a><br />
     <div class="bgmenu">
         <ul class="nav justify-content-end" style="margin:0">
             <li class="nav-item">
-                <a class="nav-link {{ current_path == 'home' ? 'active' }}" href="{{ path('home') }}">Home</a>
+                <a class="nav-link {{ current_path == 'home' ? 'active' }}" href="{{ path('home') }}">Início</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link {{ current_path == 'listagem_trabalho' ? 'active' }}" href="{{ path('listagem_trabalho') }}">Lista de Trabalhos</a>

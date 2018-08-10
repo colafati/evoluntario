@@ -1,7 +1,6 @@
 body {background:#b2c72d;}
 
 .clearfix {clear:both;}
-
 h1 {font-size:32px; color:#007bff; text-shadow: 0 0 1px black}
 
 #header {background:white;  margin:0 -15px}
@@ -18,6 +17,7 @@ h1 {font-size:32px; color:#007bff; text-shadow: 0 0 1px black}
 .filtros,
 .form-container,
 #form-container #form {max-width:700px; margin:0 auto;}
+
 .filtros hr{border:1px solid #333}
 .filtros h5 {cursor:pointer}
 .filtros input, .filtros select {font-size: 13px}
@@ -32,6 +32,27 @@ h1 {font-size:32px; color:#007bff; text-shadow: 0 0 1px black}
 #list-container .block-trabalho strong {font-weight: 600}
 #list-container .block-trabalho:hover {box-shadow: 0 0 10px #25aae1; border-color:#ccc;}
 
+#template-form { max-width: 400px; background:rgba(255,255,255,0.9); margin:0 auto; padding:30px; border-radius: 4px; box-shadow: 0 0 6px #ccc}
+
+#template-form label {display:block; text-transform: capitalize}
+
+#template-form input[type='password'],
+#template-form input[type='text'] {display: block; width: 100%; padding: .375rem .75rem; font-size: 1rem; line-height: 1.5; color: #495057;
+    background-color: #fff; background-clip: padding-box; border: 1px solid #ced4da; border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out; margin-bottom: 20px;
+}
+
+#template-form input[type='checkbox'] {float: left; line-height: 1.5; height: 26px; margin-right: 10px;}
+
+#template-form input[type='checkbox'] ~ label {cursor: pointer; display:inline-block}
+
+#template-form input[type='submit']{
+    display: block; font-weight: 400; text-align: center; white-space: nowrap; -webkit-user-select: none;
+    -moz-user-select: none; -ms-user-select: none; user-select: none; border: 1px solid transparent; text-transform: capitalize;
+    padding: .375rem .75rem; font-size: 1rem; line-height: 1.5; border-radius: .25rem; cursor: pointer; margin-top: 10px;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    color: #fff; background-color: #007bff; border-color: #007bff;
+}
 
 @media (min-width: 768px) {
   body {
