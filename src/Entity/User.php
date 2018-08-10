@@ -5,6 +5,7 @@ namespace App\Entity;
 
 use FOS\UserBundle\Model\User as FOSUser;
 use Doctrine\ORM\Mapping as ORM;
+use EWZ\Bundle\RecaptchaBundle\Validator\Constraints as Recaptcha;
 
 /**
  * @ORM\Entity
@@ -18,6 +19,11 @@ class User extends FOSUser
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
+    
+    /**
+     * @Recaptcha\IsTrue
+     */
+    public $recaptcha;
 
     public function __construct()
     {
