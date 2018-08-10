@@ -53,19 +53,32 @@
                             <strong>Instituição:</strong>
                             {{trabalho.instituicao}}
                         </div>
-                        <div>
-                            <strong>Período:</strong>
-                            {{trabalho.periodo}}
-                        </div>
-                        <div>
-                            <strong>Data:</strong>
-                            <small>de</small> {{trabalho.dataInicio|date('d/m/Y')}} <small>até</small><br> {{trabalho.dataFim|date('d/m/Y')}}
-                        </div>                        
+                        {% if trabalho.periodo is defined and trabalho.periodo is not empty %}
+                            <div>
+                                <strong>Período:</strong>
+                                {{ trabalho.periodo }}
+                            </div>
+                        {% endif %}
+                        {% if (trabalho.dataInicio is defined and trabalho.dataInicio is not empty) or (trabalho.dataFim is defined and trabalho.dataFim is not empty)  %}
+                            <div>
+                                <strong>Data:</strong>
+                                {% if trabalho.dataInicio is defined and trabalho.dataInicio is not empty %}
+                                    <small>de</small> {{ trabalho.dataInicio|date('d/m/Y') }}
+                                {% endif %}
+                                {% if trabalho.dataFim is defined and trabalho.dataFim is not empty %}
+                                    <br/>
+                                    <small>até</small>
+                                    {{trabalho.dataFim|date('d/m/Y')}}
+                                {% endif %}
+                            </div>
+                        {% endif %}
                     </div>
                     <div class="col-sm-5">
-                        <div>
-                            <a href="{{trabalho.site}}" target="_blank" rel="nofollow">{{trabalho.site}}</a>
-                        </div>
+                        {% if trabalho.site is defined and trabalho.site is not empty %}
+                            <div>
+                                <a href="{{trabalho.site}}" target="_blank" rel="nofollow">{{trabalho.site}}</a>
+                            </div>
+                        {% endif %}
                         <div>
                             <strong>Cidade:</strong>
                             {{trabalho.cidade}}
@@ -74,17 +87,19 @@
                             <strong>Email:</strong>
                             <a href="mailto:{{trabalho.email}}" target="_blank" rel="nofollow">{{trabalho.email}}</a>
                         </div>
-                        
+
                     </div>
                     <div class="col-sm-3">
                         <div>
                             <strong>Categoria:</strong>
-                            {{trabalho.categoria}}                            
+                            {{trabalho.categoria}}
                         </div>
-                        <div>
-                            <strong>Tel:</strong>
-                            {{trabalho.telefone}}
-                        </div>
+                        {% if trabalho.telefone is defined and trabalho.telefone is not empty %}
+                            <div>
+                                <strong>Tel:</strong>
+                                {{trabalho.telefone}}
+                            </div>
+                        {% endif %}
                     </div>
                 </div>
                 <div>{{trabalho.descricao}}</div>
