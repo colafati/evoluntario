@@ -1,4 +1,5 @@
 framework:
+    translator: { fallbacks: [en] }
     templating:
         engines: ['twig']
     secret: '%env(APP_SECRET)%'
