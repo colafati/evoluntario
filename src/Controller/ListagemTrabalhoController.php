@@ -33,24 +33,24 @@ class ListagemTrabalhoController extends Controller
         
         $qb = $repository->createQueryBuilder('t');
         
-        if(!empty($request->get('cidade'))) {
+        if (!empty($request->get('cidade'))) {
             $qb->andWhere('t.cidade = :cidade')
                 ->setParameter('cidade', $request->get('cidade'));
         }
         
-        if(!empty($request->get('categoria'))) {
+        if (!empty($request->get('categoria'))) {
             $qb->andWhere('t.categoria = :categoria')
                 ->setParameter('categoria', $request->get('categoria'));
         }
         
-        if(!empty($request->get('data'))) {
+        if (!empty($request->get('data'))) {
             $qb->andWhere('t.dataInicio <= :data AND t.dataFim >= :data')
                 ->setParameter('data', $request->get('data'));
         }
         
-        if(!empty($request->get('texto'))) {
+        if (!empty($request->get('texto'))) {
             $qb->andWhere('t.descricao LIKE :texto')
-                ->setParameter('texto', '%' . str_replace(' ', '%', $request->get('texto')) . '%');
+                ->setParameter('texto', '%'.str_replace(' ', '%', $request->get('texto')).'%');
         }
         
         $qb->orderBy('t.id', 'DESC');
