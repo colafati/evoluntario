@@ -35,6 +35,15 @@ fos_user:
     db_driver: orm
     firewall_name: main
     user_class: App\Entity\User
+    registration:
+        form:
+            type: App\Form\RegistrationType
     from_email:
         address: noreply@evoluntario.com
         sender_name: eVoluntario
+        
+ewz_recaptcha:
+    public_key:  6LcOMmkUAAAAAGt2Yn_LyzdNHR9yu2qJvNCV1ADJ
+    private_key: 6LcOMmkUAAAAAFKDYuAqwMtToqy_YtZmk-e4fxsK
+    # Not needed as "%kernel.default_locale%" is the default value for the locale key
+    locale_key:  %kernel.default_locale%
