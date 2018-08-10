@@ -32,9 +32,10 @@ h1 {font-size:32px; color:#007bff; text-shadow: 0 0 1px black}
 #list-container .block-trabalho strong {font-weight: 600}
 #list-container .block-trabalho:hover {box-shadow: 0 0 10px #25aae1; border-color:#ccc;}
 
-#template-form { max-width: 400px; background:rgba(255,255,255,0.9); margin:0 auto; padding:30px; border-radius: 4px; box-shadow: 0 0 6px #ccc}
+#template-form { max-width: 400px; background:rgba(255,255,255,0.9); margin:0 auto; padding:30px; border-radius: 4px; box-shadow: 0 0 6px #ccc; color:#555}
 
-#template-form label {display:block; text-transform: capitalize}
+#template-form label {display:block; text-transform: capitalize; font-weight: 600; margin-bottom: .2rem;}
+#template-form label:after {content:":"}
 
 #template-form input[type='email'],
 #template-form input[type='password'],
@@ -54,6 +55,12 @@ h1 {font-size:32px; color:#007bff; text-shadow: 0 0 1px black}
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
     color: #fff; background-color: #007bff; border-color: #007bff;
 }
+#template-form ul {padding: 0; list-style: none;}
+#template-form li {
+    position: relative; padding: .35rem .55rem;  margin-bottom: 1rem; border: 1px solid transparent; border-radius: .25rem; font-size: 13px;
+    color: #721c24; background-color: #f8d7da; border-color: #f5c6cb;
+}
+
 
 @media (min-width: 768px) {
   body {
