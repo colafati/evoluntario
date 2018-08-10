@@ -36,6 +36,7 @@ h1 {font-size:32px; color:#007bff; text-shadow: 0 0 1px black}
 
 #template-form label {display:block; text-transform: capitalize}
 
+#template-form input[type='email'],
 #template-form input[type='password'],
 #template-form input[type='text'] {display: block; width: 100%; padding: .375rem .75rem; font-size: 1rem; line-height: 1.5; color: #495057;
     background-color: #fff; background-clip: padding-box; border: 1px solid #ced4da; border-radius: .25rem;
