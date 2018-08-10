@@ -10,7 +10,9 @@
         {% endif %}
     </div>
     <div class="bgmenu">
-        <ul class="nav justify-content-end" style="margin:0">
+        <a href="#" id="menutoggle" class="text-dark" data-toggle="collapse" data-target="#menulist" aria-expanded="false" aria-controls="menulist">
+        <img src="/images/list-menu.png" /> MENU</a>
+        <ul class="nav justify-content-end collapse" id="menulist" style="margin:0">
             <li class="nav-item">
                 <a class="nav-link {{ current_path == 'home' ? 'active' }}" href="{{ path('home') }}">Início</a>
             </li>
