@@ -6,7 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class LoginRouteTest extends WebTestCase
 {
-    public function testHomeRota()
+    public function testLoginRoute()
     {
         $client = static::createClient();
 
