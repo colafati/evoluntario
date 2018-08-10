@@ -104,6 +104,29 @@
                 </div>
                 <div>{{trabalho.descricao}}</div>
             </div>
-        {%endfor%}
+        {% endfor %}
+        <br />
+        Páginas: 
+        {% if paginas > 0 %}
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    {% if request.pagina > 1 %}
+                        <li class="page-item">
+                            <a class="page-link" href="{{ path('listagem_trabalho', request|merge({'pagina': (request.pagina - 1)})) }}" tabindex="-1">Anterior</a>
+                        </li>
+                    {% endif %}
+                    {% for i in 1..paginas %}
+                        <li class="page-item{% if request.pagina == i %} active{% endif %}">
+                            <a class="page-link" href="{{ path('listagem_trabalho', request|merge({'pagina': i})) }}">{{ i }}</a>
+                        </li>
+                    {% endfor %}
+                    {% if request.pagina < paginas %}
+                        <li class="page-item">
+                            <a class="page-link" href="{{ path('listagem_trabalho', request|merge({'pagina': (request.pagina + 1)})) }}" tabindex="-1">Próxima</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </nav>
+        {% endif %}
     </div>
 {% endblock %}
