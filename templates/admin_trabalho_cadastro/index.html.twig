@@ -9,15 +9,14 @@
     {%if confirm%}
     <div class="alert alert-success">
       <strong>Obrigado!</strong> Seu trabalho foi salvo com sucesso!
-      <div style="float:right; cursor:pointer" onclick="this.parentNode.style.display='none';"><strong>X</strong></div>
     </div>
     {%else%}
     <div class="alert alert-danger">
       <strong>Erro!</strong> Por favor realize a verificação abaixo.
-      <div style="float:right; cursor:pointer" onclick="this.parentNode.style.display='none';"><strong>X</strong></div>
     </div>
     {%endif%}
 {%endif%}
+{%if submit and not confirm or not submit%}
 <div id="form-container" class="form-group">
     {{ form_start(form) }}   
     <div class="form-container">
@@ -29,4 +28,5 @@
 </div>
 <div class="clearfix"></div>
 <script src='https://www.google.com/recaptcha/api.js'></script>
+{%endif%}
 {% endblock %}
