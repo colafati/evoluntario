@@ -35,7 +35,7 @@ class AdminTrabalhoCadastroController extends Controller
                 ->add('telefone', TextType::class, array('attr' => ['class'=>'form-control']))
                 ->add('email', EmailType::class, array('attr' => ['class'=>'form-control']))
                 ->add('descricao', TextareaType::class, array('attr' => ['class'=>'form-control']))
-                ->add('salvar', SubmitType::class, array('label' => 'Salvar Trabalho','attr' => ['class'=>'btn btn-primary']))
+                ->add('salvar', SubmitType::class, array('label' => 'Salvar Trabalho', 'attr' => ['class'=>'btn btn-primary']))
                 ->getForm();
         
         $form->handleRequest($request);
@@ -53,7 +53,7 @@ class AdminTrabalhoCadastroController extends Controller
         ]);
     } 
     
-    function captchaverify($recaptcha){
+    function captchaverify($recaptcha) {
             $url = "https://www.google.com/recaptcha/api/siteverify";
             $curlObj = curl_init();
             curl_setopt($curlObj, CURLOPT_URL, $url);
@@ -61,7 +61,7 @@ class AdminTrabalhoCadastroController extends Controller
             curl_setopt($curlObj, CURLOPT_RETURNTRANSFER, TRUE); 
             curl_setopt($curlObj, CURLOPT_POST, true);
             curl_setopt($curlObj, CURLOPT_POSTFIELDS, array(
-                "secret"=>"6LcOMmkUAAAAAFKDYuAqwMtToqy_YtZmk-e4fxsK","response"=>$recaptcha));
+                "secret"=>"6LcOMmkUAAAAAFKDYuAqwMtToqy_YtZmk-e4fxsK", "response"=>$recaptcha));
             $response = curl_exec($curlObj);
             curl_close($curlObj);
             $data = json_decode($response);     
