@@ -4,7 +4,7 @@
         <a href="{{ path('home') }}"><img src="/images/evoluntario-logo.png" /></a>
         {% if app.user %}
             <div class="text-right">
-                <span style="color:#666">Seja bem-vindo(a), <em>username</em><br />
+                <span style="color:#666">Seja bem-vindo(a), <em>{{app.user}}</em><br />
                 <a href="/logout">Encerrar sessão</a></span>
             </div>
         {% endif %}
