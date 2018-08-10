@@ -1,6 +1,14 @@
 {% set current_path = app.request.get('_route') %}
 <div id="header">
-    <a href="{{ path('home') }}"><img src="/images/evoluntario-logo.png" /></a><br />
+    <div class="navbar justify-content-between" style="margin-bottom:10px">
+        <a href="{{ path('home') }}"><img src="/images/evoluntario-logo.png" /></a>
+        {% if app.user %}
+            <div class="text-right">
+                <span style="color:#666">Seja bem-vindo(a), <em>username</em><br />
+                <a href="/logout">Encerrar sessão</a></span>
+            </div>
+        {% endif %}
+    </div>
     <div class="bgmenu">
         <ul class="nav justify-content-end" style="margin:0">
             <li class="nav-item">
