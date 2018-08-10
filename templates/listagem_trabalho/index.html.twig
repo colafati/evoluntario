@@ -112,17 +112,27 @@
                 <ul class="pagination">
                     {% if request.pagina > 1 %}
                         <li class="page-item">
-                            <a class="page-link" href="{{ path('listagem_trabalho', request|merge({'pagina': (request.pagina - 1)})) }}" tabindex="-1">Anterior</a>
+                            <a class="page-link" href="{{ path('listagem_trabalho', request|merge({'pagina': (request.pagina - 1)})) }}" tabindex="-1">&lt;</a>
                         </li>
                     {% endif %}
-                    {% for i in 1..paginas %}
+                    {% if (request.pagina - 2) <= 0 %}
+                        {% set paginaInicial = 1 %}
+                    {% else %}
+                        {% set paginaInicial = (request.pagina - 2) %}
+                    {% endif %}
+                    {% if (request.pagina + 2) > paginas %}
+                        {% set paginaFinal = paginas %}
+                    {% else %}
+                        {% set paginaFinal = (request.pagina + 2) %}
+                    {% endif %}
+                    {% for i in paginaInicial..paginaFinal %}
                         <li class="page-item{% if request.pagina == i %} active{% endif %}">
                             <a class="page-link" href="{{ path('listagem_trabalho', request|merge({'pagina': i})) }}">{{ i }}</a>
                         </li>
                     {% endfor %}
                     {% if request.pagina < paginas %}
                         <li class="page-item">
-                            <a class="page-link" href="{{ path('listagem_trabalho', request|merge({'pagina': (request.pagina + 1)})) }}" tabindex="-1">Próxima</a>
+                            <a class="page-link" href="{{ path('listagem_trabalho', request|merge({'pagina': (request.pagina + 1)})) }}" tabindex="-1">&gt;</a>
                         </li>
                     {% endif %}
                 </ul>
