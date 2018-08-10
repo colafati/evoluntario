@@ -33,7 +33,7 @@ h1 {font-size:32px; color:#007bff; text-shadow: 0 0 1px black}
 .form-container div{margin: 0 auto;}
 
 #form-container #form div {width:330px; float:left;}
-#form-container #form div:nth-child(odd) { margin-right: 20px;}
+#form-container #form div:nth-child(odd) { margin-right: 20px; margin-left: 100px;}
 #form-container #form div:last-child {float:none}
 
 #list-container .block-trabalho {background:white; box-shadow: 0 0 10px grey; border-radius: 4px; margin-bottom: 20px; color:#666; border:1px solid transparent; padding:20px;}
@@ -76,5 +76,8 @@ h1 {font-size:32px; color:#007bff; text-shadow: 0 0 1px black}
 }
 
 @media (min-width: 768px) {
-  body {background:#b2c72d url('/images/volunteer-hero.jpg') 0 0 no-repeat; background-size:100%;}
+  body {background:#b2c72d url('/images/volunteer-hero.jpg') 0 0 no-repeat;}
+}
+@media (min-width: 1600px) {
+    body {background-size: 100%;}
 }
