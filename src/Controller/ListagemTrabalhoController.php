@@ -63,7 +63,7 @@ class ListagemTrabalhoController extends Controller
         $total = !empty($trabalhosContagem[0]['total']) ? (int) $trabalhosContagem[0]['total'] : 0;
         $paginas = ceil($total / $registrosPorPagina);
         
-        $qb->setFirstResult($registrosPorPagina * ($pagina -1))
+        $qb->setFirstResult($registrosPorPagina * ($pagina - 1))
             ->setMaxResults($registrosPorPagina);
         
         $qb->select(array('t'));
