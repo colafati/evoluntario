@@ -2,11 +2,13 @@
 {% block title %}Registro de Voluntário{% endblock %}
 
 {% block body %}
-    <h1>Registro de Voluntário</h1>
     <div id="template-form">
-    {% block fos_user_content %}{% endblock %}
-    {% if app.request.get('_route') == 'fos_user_security_login'%}
-        <div>Clique <a href="{{ path('fos_user_registration_register') }}">aqui</a> caso ainda não seja cadastrado.</div>
-    {%endif%}
+        {% block fos_user_content %}{% endblock %}
+        {% if app.request.get('_route') == 'fos_user_security_login'%}
+            <br />
+            <div class="text-center">
+                <a href="{{ path('fos_user_registration_register') }}">Clique aqui</a> caso ainda não seja cadastrado
+            </div>
+        {% endif %}
     </div>
 {% endblock %}
