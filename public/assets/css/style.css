@@ -15,7 +15,11 @@ h1 {font-size:32px; color:#007bff; text-shadow: 0 0 1px black}
 .mh400 {min-height: 400px}
 
 #list-container,
+.filtros,
 #form-container #form {max-width:700px; margin:0 auto;}
+.filtros hr{border:1px solid #333}
+.filtros h5 {cursor:pointer}
+.filtros input, .filtros select {font-size: 13px}
 
 #form-container #form div {width:330px; float:left;}
 #form-container #form div:nth-child(odd) { margin-right: 20px;}
